@@ -1,0 +1,132 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/*
+ * Identidade F8 — paleta semântica
+ * - Amarelo #FFD500 = primary (CTAs, ações)
+ * - Preto #0A0A0A = foreground / fundos escuros
+ * - Branco = background principal
+ * - Sidebar = preta com ativo amarelo
+ *
+ * Estes tokens podem ser sobrescritos pelo painel /admin/visual via useDynamicTheme.
+ */
+@layer base {
+  :root {
+    --background: 0 0% 100%;          /* white */
+    --foreground: 0 0% 4%;            /* ink #0A0A0A */
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 4%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 4%;
+
+    --primary: 51 100% 50%;           /* brand yellow #FFD500 */
+    --primary-foreground: 0 0% 4%;    /* black on yellow */
+
+    --secondary: 0 0% 96%;            /* ink-100 */
+    --secondary-foreground: 0 0% 9%;  /* ink-900 */
+
+    --muted: 0 0% 96%;
+    --muted-foreground: 0 0% 32%;     /* ink-600 */
+
+    --accent: 51 100% 95%;            /* brand-50 */
+    --accent-foreground: 0 0% 4%;
+
+    --destructive: 0 84% 60%;         /* danger #EF4444 */
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 0 0% 83%;               /* ink-300 #D4D4D4 */
+    --input: 0 0% 83%;
+    --ring: 51 100% 50%;              /* yellow focus ring */
+    --radius: 0.5rem;
+
+    --success: 142 71% 45%;           /* #22C55E */
+    --success-foreground: 0 0% 100%;
+    --warning: 38 92% 50%;            /* #F59E0B */
+    --warning-foreground: 0 0% 10%;
+    --info: 217 91% 60%;              /* #3B82F6 */
+    --info-foreground: 0 0% 100%;
+
+    /* Sidebar preta com ativo amarelo (F8 brand) */
+    --sidebar-background: 0 0% 4%;            /* ink */
+    --sidebar-foreground: 0 0% 96%;           /* off-white */
+    --sidebar-primary: 51 100% 50%;           /* yellow */
+    --sidebar-primary-foreground: 0 0% 4%;    /* black on yellow */
+    --sidebar-accent: 0 0% 9%;                /* ink-900 hover */
+    --sidebar-accent-foreground: 51 100% 50%; /* yellow text on hover */
+    --sidebar-border: 0 0% 12%;
+    --sidebar-ring: 51 100% 50%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  html {
+    font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  }
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Inter', system-ui, sans-serif;
+    letter-spacing: -0.01em;
+  }
+  h1 { @apply text-3xl md:text-4xl font-extrabold; }
+  h2 { @apply text-2xl md:text-3xl font-bold; }
+  h3 { @apply text-lg md:text-xl font-semibold; }
+}
+
+@layer components {
+  /* Logo F8: quadrado amarelo com texto preto bold */
+  .f8-logo {
+    @apply inline-flex items-center justify-center rounded-2xl bg-brand-500 text-ink font-extrabold;
+  }
+
+  /* Stat (números grandes) — padrão da F8 */
+  .f8-stat {
+    @apply text-4xl md:text-5xl font-extrabold text-foreground leading-none;
+  }
+  .f8-stat-label {
+    @apply text-xs uppercase tracking-wider text-muted-foreground font-semibold mt-1;
+  }
+
+  /* Banners de ambiente */
+  .env-banner-dev {
+    background-color: hsl(217, 91%, 60%);
+    color: hsl(0, 0%, 100%);
+  }
+  .env-banner-staging {
+    background-color: hsl(38, 92%, 50%);
+    color: hsl(0, 0%, 10%);
+  }
+  .env-banner-production {
+    background-color: hsl(142, 71%, 45%);
+    color: hsl(0, 0%, 100%);
+  }
+
+  /* Status badges */
+  .status-active {
+    background-color: hsl(142, 71%, 45%);
+    color: hsl(0, 0%, 100%);
+  }
+  .status-inactive {
+    background-color: hsl(0, 0%, 92%);
+    color: hsl(0, 0%, 32%);
+  }
+  .status-blocked {
+    background-color: hsl(0, 84%, 60%);
+    color: hsl(0, 0%, 100%);
+  }
+  .status-pending {
+    background-color: hsl(38, 92%, 50%);
+    color: hsl(0, 0%, 10%);
+  }
+
+  /* Saúde de projeto */
+  .health-verde    { background-color: hsl(142, 71%, 45%); color: white; }
+  .health-amarelo  { background-color: hsl(38, 92%, 50%);  color: hsl(0,0%,10%); }
+  .health-vermelho { background-color: hsl(0, 84%, 60%);   color: white; }
+}

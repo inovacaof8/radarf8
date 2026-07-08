@@ -1,0 +1,2 @@
+UPDATE meeting_action_item SET assignee_id = '9df8b364-2373-42f8-9d3f-a56290f881e3' WHERE assignee_id IN ('9ac8a6de-0671-412a-b2aa-7fb37d63a614','b1aa377f-1d5e-438b-8c02-1b58e1a5bbc9');
+UPDATE task SET assignee_id = '9df8b364-2373-42f8-9d3f-a56290f881e3' WHERE assignee_id IN ('9ac8a6de-0671-412a-b2aa-7fb37d63a614','b1aa377f-1d5e-438b-8c02-1b58e1a5bbc9');

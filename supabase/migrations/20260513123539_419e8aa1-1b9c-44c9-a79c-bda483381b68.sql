@@ -1,0 +1,2 @@
+DELETE FROM public.ged_document_index WHERE documento_id IN (SELECT d.id FROM public.ged_document d LEFT JOIN public.ged_document_version v ON v.documento_id = d.id GROUP BY d.id HAVING COUNT(v.id) = 0);
+DELETE FROM public.ged_document WHERE id IN (SELECT d.id FROM public.ged_document d LEFT JOIN public.ged_document_version v ON v.documento_id = d.id GROUP BY d.id HAVING COUNT(v.id) = 0);

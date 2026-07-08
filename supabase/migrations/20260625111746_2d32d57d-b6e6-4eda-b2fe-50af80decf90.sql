@@ -1,0 +1,1 @@
+UPDATE public.onboarding_settings SET enabled = false WHERE id = true;
